@@ -10,7 +10,7 @@ body{
 
 
 #mainContainer{
-    margin-top:7%;
+    margin-top:6%;
     height:317px;
     width:865px;
     border-radius: 3%;
@@ -21,6 +21,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    padding:.5%;
 }
 
 #fiveDay{
@@ -33,6 +34,13 @@ body{
     text-align: center;
     
 }
+
+#dayAndDate{
+    color:#ffffff;
+    
+}
+
+    
 
 .dayOfWeek{
     padding-top: 12%;
@@ -49,4 +57,10 @@ body{
     padding-left:20px;
     font-size: 40px;
     color:yellow;
+}
+
+.dayAndDate{
+    padding-top:20px;
+    color: #ffffff;
+    font-size:25px;
 }
