@@ -4,12 +4,10 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    overflow-x: hidden;
     
 }   
 
-.h5{
-    color:black
-}
 
 #mainContainer{
     margin-top:7%;
@@ -17,7 +15,6 @@ body{
     width:865px;
     border-radius: 3%;
     background-color:rgb(35, 120, 198,.5);
-    /* align-items: center; */
 }
 
 .row{
@@ -28,9 +25,28 @@ body{
 
 #fiveDay{
     background-color:rgb(35, 120, 198,.5);
-    height:220px;
+    height:240px;
     width:160px;
     margin:.5%;
     border-radius: 3%;
+    color:#ffffff;
+    text-align: center;
     
+}
+
+.dayOfWeek{
+    padding-top: 12%;
+}
+
+.dayOfWeekTemp{
+    color:#ffffff;
+    font-size: 60px;
+    margin-top:-15px;
+}
+
+.currentLocation{
+    padding-top:20px;
+    padding-left:20px;
+    font-size: 40px;
+    color:yellow;
 }
