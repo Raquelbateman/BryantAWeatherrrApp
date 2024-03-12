@@ -4,4 +4,33 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    
 }   
+
+.h5{
+    color:black
+}
+
+#mainContainer{
+    margin-top:7%;
+    height:317px;
+    width:865px;
+    border-radius: 3%;
+    background-color:rgb(35, 120, 198,.5);
+    /* align-items: center; */
+}
+
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#fiveDay{
+    background-color:rgb(35, 120, 198,.5);
+    height:220px;
+    width:160px;
+    margin:.5%;
+    border-radius: 3%;
+    
+}
