@@ -35,17 +35,6 @@ body{
     
 }
 
-#dayAndDate{
-    color:#ffffff;
-    
-}
-
-    
-
-.dayOfWeek{
-    padding-top: 12%;
-}
-
 .dayOfWeekTemp{
     color:#ffffff;
     font-size: 60px;
@@ -63,4 +52,11 @@ body{
     padding-top:20px;
     color: #ffffff;
     font-size:25px;
+    display:flex;
+    justify-content: center;
+}
+.form-control{
+    margin-top:10%;
+    width:245px;
+    border-radius: 3.5%;
 }
