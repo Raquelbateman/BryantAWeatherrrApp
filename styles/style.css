@@ -17,7 +17,7 @@ body{
     background-color:rgb(35, 120, 198,.5);
 }
 
-.row{
+#fiveDayRow{
     display: flex;
     align-items: center;
     justify-content: center;
