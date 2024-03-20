@@ -1,117 +1,55 @@
-
-let searchHistoryUL = document.getElementById('searchHistoryUL');
-let searchForm = document.getElementById('searchForm')
-let searchInput = document.getElementById('searchInput');
-// let searchButton = document.getElementById('searchButton');
-
-
-// curent location == currentLocation
-let currentLocation = document.getElementById('currentLocation');
-
-let weatherDIV = document.getElementById('weatherDIV')
-
+let currentLocation = document.getElementById("currentLocation");
 
 // 5 day forecast == fiveDay
-let fiveDay = document.getElementById('fiveDay');
+let fiveDay = document.getElementById("fiveDay");
 
 //current day == dayofWeek
-let dayOfWeek = document.getElementById('dayOfWeek')
+let dayOfWeek = document.getElementById("dayOfWeek");
 
 //curent temp == dayofWeekTemp
-let dayOfWeekTemp = document.getElementById('dayOfWeekTemp');
+let dayOfWeekTemp = document.getElementById("dayOfWeekTemp");
 
 //weather icon == weatherIcon
-let weatherIcon = document.getElementById('weatherIcon');
+let weatherIcon = document.getElementById("weatherIcon");
 
+let defaultCity = "stockton";
 
+async function getweatherData(defaultCity){
+    let apiResponse = await fetch("https://api.openweathermap.org/data/2.5/weather?q=" + defaultCity + "&units=imperial&appid=" + "0b21588c5bd6e32721b905cd8aacabd7").then(Response => Response.json());
 
-// let dayAndDate = document.getElementById("dayAndDate");
-
-
-
-
-
-//Use MomentJS to get current time/date
-let today = moment();
-
-//Initialize Search Items and Max History Items Globally
-let searchItems = [];
-let maxHistoryItems = 5;
-
-//Query Local Storage for existing information, if available populate search History.
-function initLocalStorage(){
-    if (localStorage.getItem('storedSearches')){
-        searchItems = JSON.parse(localStorage.getItem('storedSearches'));
-        for (let x = 0; x < searchItems.length; x++) {
-            createStorageNodes(searchItems);
-        }
-    }
+        console.log(apiResponse);
+    
 }
 
-//Create Storage buttons from local Storage
-function createStorageNodes(items) {
-    searchHistoryUL.innerHTML = '';
-    for (let x = 0; x < items.length; x++){
-        let newEl = document.createElement('li');
-        newEl.classList = "searchItem btn-info";
-        newEl.textContent = items[x];
-        searchHistoryUL.appendChild(newEl);
-    }
-    searchInput.value = '';
-};
+getweatherData(defaultCity);
 
-//Search Button Event processes
-searchForm.addEventListener('submit', function(e) {
-    searchDIV.classList = "";
-    weatherDIV.style.display = 'block';
-    e.preventDefault();
-    const input = searchInput.value;
-    if(input.length > 0) {
-        currentWeather(input);
-        searchItems.unshift(input);
-        if(searchItems.length > maxHistoryItems) {
-            searchItems.pop();
-        }
-        createStorageNodes(searchItems);
-        searchButton.blur();
-        localStorage.setItem('storedSearches', JSON.stringify(searchItems));
-    }
-})
 
-searchHistoryUL.addEventListener('click', function(e) {
-    if (e.target.matches('.searchItem')) {
-        e.preventDefault();
-        searchInput.value = e.target.textContent;
-        searchButton.click();
-    }
-})
+// let currentLocation = document.getElementById("currentLocation");
+// let dayOfWeek = document.getElementById("dayOfWeek");
+// let dayOfWeekTemp = document.getElementById("dayOfWeekTemp");
+// let weatherIcon = document.getElementById("weatherIcon");
 
-//Function to query API to get current weather and then query secondary API for forecast using Longitude
-//and Latitude.
-function currentWeather(location) {
-    const apiKey = 'f0843e2d5655217e1be93c6df679445a';
-    const requestURL = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}}&aqi=no`;
+// let defaultCity = "stockton";
+
+// async function getWeatherData(defaultCity) {
+//     try {
+//         let apiResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${defaultCity}&units=imperial&appid=0b21588c5bd6e32721b905cd8aacabd7`);
+//         let weatherData = await apiResponse.json();
+
+//         if (currentLocation && dayOfWeek && dayOfWeekTemp && weatherIcon) {
+//             currentLocation.textContent = `Current Weather in ${defaultCity}`;
+//             dayOfWeek.textContent = "Current Temperature:";
+//             dayOfWeekTemp.textContent = `${weatherData.main.temp} °F`;
+//             weatherIcon.src = `http://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`;
+//             weatherIcon.alt = weatherData.weather[0].description;
+//         } else {
+//             console.error("One or more elements not found.");
+//         }
+//     } catch (error) {
+//         console.error("Error fetching weather data:", error);
+//     }
+// }
+
+// getWeatherData(defaultCity);
+
     
-    fetch(requestURL)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (weather) {
-        const longitude = weather.location.lon;
-        const latitude = weather.location.lat;
-    
-        locationName.textContent = weather.location.name + 
-        ', ' + weather.location.region;
-
-        todaysDate.textContent = today.format('MM/DD/YYYY');
-
-   
-
-        currentTemp.textContent = weather.current.temp_f;
-
-
-        currentIcon.src = "https:" + weather.current.condition.icon;
-
-        getForecast(latitude, longitude);
-        });
-}
