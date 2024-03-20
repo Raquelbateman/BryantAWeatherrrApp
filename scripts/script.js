@@ -14,8 +14,10 @@ let weatherIcon = document.getElementById("weatherIcon");
 
 let defaultCity = "stockton";
 
+let currentCity = defaultCity;
+
 async function getweatherData(defaultCity){
-    let apiResponse = await fetch("https://api.openweathermap.org/data/2.5/weather?q=" + defaultCity + "&units=imperial&appid=" + "0b21588c5bd6e32721b905cd8aacabd7").then(Response => Response.json());
+    let apiResponse = await fetch("https://api.openweathermap.org/data/2.5/weather?q=" + defaultCity + "&units=imperial&appid=" + "").then(Response => Response.json());
 
         console.log(apiResponse);
     
