@@ -1,103 +1,172 @@
-let searchHistoryUL = document.getElementById("searchHistoryUL");
-let searchForm = document.getElementById("searchForm");
-let searchInput = document.getElementById("searchInput");
-// let searchButton = document.getElementById('searchButton');
-
-// curent location == currentLocation
-let currentLocation = document.getElementById("currentLocation");
-
-let weatherDIV = document.getElementById("weatherDIV");
-
-// 5 day forecast == fiveDay
-let fiveDay = document.getElementById("fiveDay");
 
 //current day == dayofWeek
 let dayOfWeek = document.getElementById("dayOfWeek");
 
-//curent temp == dayofWeekTemp
+//curent temp == dayofWeekTemplet currentLocation = document.getElementById("currentLocation");
+
+// 5 day forecast == fiveDay
+let fiveDay = document.getElementById("fiveDay");
+
 let dayOfWeekTemp = document.getElementById("dayOfWeekTemp");
 
 //weather icon == weatherIcon
 let weatherIcon = document.getElementById("weatherIcon");
 
-//Use MomentJS to get current time/date
-let today = moment();
+let defaultCity = "stockton";
+ 
+let weatherData = [];
 
-//Initialize Search Items and Max History Items Globally
-let searchItems = [];
-let maxHistoryItems = 5;
+let currentCity = defaultCity;
 
-//Query Local Storage for existing information, if available populate search History.
-function initLocalStorage() {
-    if (localStorage.getItem("storedSearches")) {
-        searchItems = JSON.parse(localStorage.getItem("storedSearches"));
-        for (let x = 0; x < searchItems.length; x++) {
-            createStorageNodes(searchItems);
-        }
-    }
+async function getweatherData(defaultCity){
+  let apiResponse = await fetch(
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
+      defaultCity +
+      "&units=imperial&appid=" +
+      "0b21588c5bd6e32721b905cd8aacabd7"
+  ).then((Response) => Response.json());
+  console.log(apiResponse);
+  currentLocation.innerText = apiResponse.name;
+  weatherData = apiResponse;
+  
 }
 
-//Create Storage buttons from local Storage
-function createStorageNodes(items) {
-    searchHistoryUL.innerHTML = "";
-    for (let x = 0; x < items.length; x++) {
-        let newEl = document.createElement("li");
-        newEl.classList = "searchItem btn-info";
-        newEl.textContent = items[x];
-        searchHistoryUL.appendChild(newEl);
-    }
-    searchInput.value = "";
-}
+getweatherData(defaultCity);
 
-//Search Button Event processes
-searchForm.addEventListener("submit", function (e) {
-    searchDIV.classList = "";
-    weatherDIV.style.display = "block";
-    e.preventDefault();
-    const input = searchInput.value;
-    if (input.length > 0) {
-        currentWeather(input);
-        searchItems.unshift(input);
-        if (searchItems.length > maxHistoryItems) {
-            searchItems.pop();
-        }
-        createStorageNodes(searchItems);
-        searchButton.blur();
-        localStorage.setItem("storedSearches", JSON.stringify(searchItems));
-    }
-});
+searchBtn.addEventListener("click", function () {
+    getPokes(searchInput.value);
+  });
+  
 
-searchHistoryUL.addEventListener("click", function (e) {
-    if (e.target.matches(".searchItem")) {
-        e.preventDefault();
-        searchInput.value = e.target.textContent;
-        searchButton.click();
-    }
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// let searchHistoryUL = document.getElementById("searchHistoryUL");
+// let searchForm = document.getElementById("searchForm");
+// let searchInput = document.getElementById("searchInput");
+// // let searchButton = document.getElementById('searchButton');
+
+// // curent location == currentLocation
+// let currentLocation = document.getElementById("currentLocation");
+
+// let weatherDIV = document.getElementById("weatherDIV");
+
+// // 5 day forecast == fiveDay
+// let fiveDay = document.getElementById("fiveDay");
+
+// //current day == dayofWeek
+// let dayOfWeek = document.getElementById("dayOfWeek");
+
+// //curent temp == dayofWeekTemp
+// let dayOfWeekTemp = document.getElementById("dayOfWeekTemp");
+
+// //weather icon == weatherIcon
+// let weatherIcon = document.getElementById("weatherIcon");
+
+// //Use MomentJS to get current time/date
+// let today = moment();
+
+// //Initialize Search Items and Max History Items Globally
+// let searchItems = [];
+// let maxHistoryItems = 5;
+
+// //Query Local Storage for existing information, if available populate search History.
+// function initLocalStorage() {
+//     if (localStorage.getItem("storedSearches")) {
+//         searchItems = JSON.parse(localStorage.getItem("storedSearches"));
+//         for (let x = 0; x < searchItems.length; x++) {
+//             createStorageNodes(searchItems);
+//         }
+//     }
+// }
+
+// //Create Storage buttons from local Storage
+// function createStorageNodes(items) {
+//     searchHistoryUL.innerHTML = "";
+//     for (let x = 0; x < items.length; x++) {
+//         let newEl = document.createElement("li");
+//         newEl.classList = "searchItem btn-info";
+//         newEl.textContent = items[x];
+//         searchHistoryUL.appendChild(newEl);
+//     }
+//     searchInput.value = "";
+// }
+
+// //Search Button Event processes
+// searchForm.addEventListener("submit", function (e) {
+//     searchDIV.classList = "";
+//     weatherDIV.style.display = "block";
+//     e.preventDefault();
+//     const input = searchInput.value;
+//     if (input.length > 0) {
+//         currentWeather(input);
+//         searchItems.unshift(input);
+//         if (searchItems.length > maxHistoryItems) {
+//             searchItems.pop();
+//         }
+//         createStorageNodes(searchItems);
+//         searchButton.blur();
+//         localStorage.setItem("storedSearches", JSON.stringify(searchItems));
+//     }
+// });
+
+// searchHistoryUL.addEventListener("click", function (e) {
+//     if (e.target.matches(".searchItem")) {
+//         e.preventDefault();
+//         searchInput.value = e.target.textContent;
+//         searchButton.click();
+//     }
+// });
 
 //Function to query API to get current weather and then query secondary API for forecast using Longitude
 //and Latitude.
-function currentWeather(location) {
-    const apiKey = "0b21588c5bd6e32721b905cd8aacabd7";
-    const requestURL = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}}&aqi=no`;
+// function currentWeather(location) {
+//     const apiKey = "0b21588c5bd6e32721b905cd8aacabd7";
+//     const requestURL = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}}&aqi=no`;
 
-    fetch(requestURL)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (weather) {
-            const longitude = weather.location.lon;
-            const latitude = weather.location.lat;
+//     fetch(requestURL)
+//         .then(function (response) {
+//             return response.json();
+//         })
+//         .then(function (weather) {
+//             const longitude = weather.location.lon;
+//             const latitude = weather.location.lat;
 
-            locationName.textContent =
-                weather.location.name + ", " + weather.location.region;
+//             locationName.textContent =
+//                 weather.location.name + ", " + weather.location.region;
 
-            todaysDate.textContent = today.format("MM/DD/YYYY");
+//             todaysDate.textContent = today.format("MM/DD/YYYY");
 
-            currentTemp.textContent = weather.current.temp_f;
+//             currentTemp.textContent = weather.current.temp_f;
 
-            currentIcon.src = "https:" + weather.current.condition.icon;
+//             currentIcon.src = "https:" + weather.current.condition.icon;
 
-            getForecast(latitude, longitude);
-        });
-}
+//             getForecast(latitude, longitude);
+//         });
+// }
