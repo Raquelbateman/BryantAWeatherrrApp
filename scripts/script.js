@@ -1,4 +1,4 @@
-let searchBtn = document.getElementById("searchBtn");
+// let searchBtn = document.getElementById("searchBtn");
 
 let cLocation = document.getElementById("cLocation");
 
@@ -17,6 +17,9 @@ document.getElementById("searchBtn").addEventListener("keypress", function(event
     });
     
 
+//
+
+
 
 
 // async function to get "cLocation" from the HTML and hook it up with innerText so it displays whatever name is entered when "searchBtn" is pressed
@@ -26,6 +29,36 @@ async function getweatherData(defaultCity){
   console.log(apiResponse);
 
 };
+
+
+
+
+
+
+
+
+
+
+
+// Function to display the current Weather
+// function displayCurrentWeather(data) {
+
+//   document.querySelector('.current-weather-info').innerHTML = `
+//   <h3>${data.name}</h3>
+//   <h1>${Math.round(data.main.temp)}째F</h1>
+//   <h6>${data.main.temp_max}째</h6>
+//   <h6>${data.main.temp_min}째</h6>
+//   <img id="current-weather-icon">
+//   <h4>-${data.weather[0].description}-</h4>   
+//   `
+//   // Setting the icon
+//   document.querySelector('#current-weather-icon').setAttribute('src', `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
+// }
+
+
+
+
+
 
 
 
