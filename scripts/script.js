@@ -1,6 +1,8 @@
-// let searchBtn = document.getElementById("searchBtn");
+let searchBar = document.getElementById("searchBar");
 
 let cLocation = document.getElementById("cLocation");
+
+let currentTemp = document.getElementById("currentTemp");
 
 let fiveDay = document.getElementById("fiveDay");
 
@@ -8,27 +10,49 @@ let choosenCity ="";
 
 
 // connects button to getWeatherData by a keypress. whenever a city is entered, it will display it in the left hand corner
-document.getElementById("searchBtn").addEventListener("keypress", function(event){
+  searchBar.addEventListener("keypress", function(event){
     if(event.key === "Enter"){
-        choosenCity = searchBtn.value;
+        choosenCity = searchBar.value;
 
 
         getweatherData(choosenCity)}
     });
     
 
+
 //
-
-
 
 
 // async function to get "cLocation" from the HTML and hook it up with innerText so it displays whatever name is entered when "searchBtn" is pressed
 async function getweatherData(defaultCity){
-  let apiResponse = await fetch("https://api.openweathermap.org/data/2.5/weather?q="+defaultCity+"&appid=0b21588c5bd6e32721b905cd8aacabd7&units=imperial").then(Response => Response.json());
+  let apiResponse = await fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + defaultCity + "&units=imperial&appid=0b21588c5bd6e32721b905cd8aacabd7").then(Response => Response.json());
+    
   cLocation.innerText = apiResponse.name;
+
+  // currentTemp.innerText = Math.round(apiResponse.list[0].main.temp);
+
+
+
+  
   console.log(apiResponse);
 
 };
+
+// async function getweatherData(defaultCity){
+//   let apiResponse = await fetch("https://api.openweathermap.org/data/2.5/weather?q="+defaultCity+"&appid=0b21588c5bd6e32721b905cd8aacabd7&units=imperial").then(Response => Response.json());
+//   currentTemp.innerText = apiResponse.city.name;
+//   console.log(apiResponse);
+
+// };
+
+
+
+// async function getweatherData(defaultCity){
+//   let apiResponse = await fetch("https://api.openweathermap.org/data/2.5/weather?q="+defaultCity+"&appid=0b21588c5bd6e32721b905cd8aacabd7&units=imperial").then(Response => Response.json());
+//   dayAndDate.innerText = apiResponse.city.name;
+//   console.log(apiResponse);
+
+// };
 
 
 
