@@ -1,5 +1,7 @@
 let searchBar = document.getElementById("searchBar");
 
+let dayAndDate = document.getElementById("dayAndDate");
+
 let cLocation = document.getElementById("cLocation");
 
 let currentTemp = document.getElementById("currentTemp");
@@ -24,19 +26,67 @@ let choosenCity ="";
 
 
 // async function to get "cLocation" from the HTML and hook it up with innerText so it displays whatever name is entered when "searchBtn" is pressed
-async function getweatherData(chosenCity){
-  let apiResponse = await fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + chosenCity + "&units=imperial&appid=0b21588c5bd6e32721b905cd8aacabd7").then(Response => Response.json());
+async function getweatherData(choosenCity){
+  let apiResponse = await fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + choosenCity + "&units=imperial&appid=0b21588c5bd6e32721b905cd8aacabd7").then(Response => Response.json());
     
-  cLocation.innerText = apiResponse.name;
-
-  // currentTemp.innerText = Math.round(apiResponse.list[0].main.temp);
-
-
-
   
-  console.log(apiResponse);
+  cLocation.innerText = apiResponse.name;
+  dayAndDate.innerText = apiResponse.
+  currentTemp.innerText = Math.round(apiResponse.list[0].main.temp);
+  tempNowMin.innerText = Math.round(apiResponse.list[0].main.temp_mint);
+  tempNowMax.innerText = Math.round(apiResponse.list[0].main.temp_max);
+
+
+ console.log(apiResponse);
 
 };
+
+
+// FIVE DAY TEMP
+
+// async function getweatherData(choosenCity){
+//   let apiResponse = await fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + choosenCity + "&units=imperial&appid=0b21588c5bd6e32721b905cd8aacabd7").then(Response => Response.json());
+
+//// 1 DAY
+// dayOneTemp.innerText = Math.round(apiResponse.list[4].main.temp);
+// dayOnetempNowMin.innerText = Math.round(apiResponse.list[4].main.temp_min);
+// dayOnetempNowMax.innerText = Math.round(apiResponse.list[4].main.temp_max);
+
+
+//// 2 DAY
+// dayTwoTemp.innerText = Math.round(apiResponse.list[12].main.temp);
+// dayTwotempNowMin.innerText = Math.round(apiResponse.list[12].main.temp_min);
+// dayTwotempNowMax.innerText = Math.round(apiResponse.list[12].main.temp_max);
+
+//// 3 DAY
+// dayThreeTemp.innerText = Math.round(apiResponse.list[20].main.temp);
+// dayThreetempNowMin.innerText = Math.round(apiResponse.list[20].main.temp_min);
+// dayThreetempNowMax.innerText = Math.round(apiResponse.list[20].main.temp_max);
+
+//// 4 DAY
+// dayFourTemp.innerText = Math.round(apiResponse.list[28].main.temp);
+// dayFourtempNowMin.innerText = Math.round(apiResponse.list[28].main.temp_min);
+// dayFourtempNowMax.innerText = Math.round(apiResponse.list[28].main.temp_max);
+
+//// 5 DAY
+// dayFiveTemp.innerText = Math.round(apiResponse.list[36].main.temp);
+// dayFivetempNowMin.innerText = Math.round(apiResponse.list[36].main.temp_mint);
+// dayFivetempNowMax.innerText = Math.round(apiResponse.list[36].main.temp_max);
+
+
+   
+
+
+//  console.log(apiResponse);
+// };
+
+
+// one call API response
+
+
+
+ // tempNowMin.innerText = Math.round(apiResponse.list[0].main.temp_mint);
+  // tempNowMax.innerText = Math.round(apiResponse.list[0].main.temp_max);
 
 // async function getweatherData(defaultCity){
 //   let apiResponse = await fetch("https://api.openweathermap.org/data/2.5/weather?q="+defaultCity+"&appid=0b21588c5bd6e32721b905cd8aacabd7&units=imperial").then(Response => Response.json());
