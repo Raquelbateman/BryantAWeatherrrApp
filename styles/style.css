@@ -63,11 +63,7 @@ body{
     display:flex;
     justify-content: center;
 }
-.form-control{
-    margin-top:10%;
-    width:245px;
-    border-radius: 3.5%;
-}
+
 
 .currentTemp{
     
@@ -78,7 +74,7 @@ body{
 
 }
 
-.highLow{
+#tempNowMin, #tempNowMin{
     color:#ffffff;
     font-size: 18px;
     padding-left: 30%;

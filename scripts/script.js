@@ -6,6 +6,10 @@ let cLocation = document.getElementById("cLocation");
 
 let currentTemp = document.getElementById("currentTemp");
 
+let tempNowMax = document.getElementById("tempNowMax");
+
+let tempNowMin = document.getElementById("tempNowMin");
+
 let fiveDay = document.getElementById("fiveDay");
 
 let choosenCity ="";
@@ -31,9 +35,8 @@ async function getweatherData(choosenCity){
     
   
   cLocation.innerText = apiResponse.name;
-  dayAndDate.innerText = apiResponse.
   currentTemp.innerText = Math.round(apiResponse.list[0].main.temp);
-  tempNowMin.innerText = Math.round(apiResponse.list[0].main.temp_mint);
+  tempNowMin.innerText = Math.round(apiResponse.list[0].main.temp_min);
   tempNowMax.innerText = Math.round(apiResponse.list[0].main.temp_max);
 
 
@@ -51,27 +54,32 @@ async function getweatherData(choosenCity){
 // dayOneTemp.innerText = Math.round(apiResponse.list[4].main.temp);
 // dayOnetempNowMin.innerText = Math.round(apiResponse.list[4].main.temp_min);
 // dayOnetempNowMax.innerText = Math.round(apiResponse.list[4].main.temp_max);
+// dayOneIcon = apiResponse.weather.icon;
 
 
 //// 2 DAY
 // dayTwoTemp.innerText = Math.round(apiResponse.list[12].main.temp);
 // dayTwotempNowMin.innerText = Math.round(apiResponse.list[12].main.temp_min);
 // dayTwotempNowMax.innerText = Math.round(apiResponse.list[12].main.temp_max);
+// dayTwoIcon = apiResponse.weather.icon;dayTwoIcon
 
 //// 3 DAY
 // dayThreeTemp.innerText = Math.round(apiResponse.list[20].main.temp);
 // dayThreetempNowMin.innerText = Math.round(apiResponse.list[20].main.temp_min);
 // dayThreetempNowMax.innerText = Math.round(apiResponse.list[20].main.temp_max);
+// dayThreeIcon = apiResponse.weather.icon;
 
 //// 4 DAY
 // dayFourTemp.innerText = Math.round(apiResponse.list[28].main.temp);
 // dayFourtempNowMin.innerText = Math.round(apiResponse.list[28].main.temp_min);
 // dayFourtempNowMax.innerText = Math.round(apiResponse.list[28].main.temp_max);
+// dayFourIcon = apiResponse.weather.icon;
 
 //// 5 DAY
 // dayFiveTemp.innerText = Math.round(apiResponse.list[36].main.temp);
 // dayFivetempNowMin.innerText = Math.round(apiResponse.list[36].main.temp_mint);
 // dayFivetempNowMax.innerText = Math.round(apiResponse.list[36].main.temp_max);
+// dayFiveIcon = apiResponse.weather.icon;
 
 
    
