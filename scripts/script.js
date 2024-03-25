@@ -68,8 +68,6 @@ async function getweatherData(choosenCity){
 
 // 1 DAY
 dayOneTemp.innerText = Math.round(apiResponse.list[4].main.temp);
-dayOneTempMin.innerText = Math.round(apiResponse.list[4].main.temp_min);
-dayOneTempMax.innerText = Math.round(apiResponse.list[4].main.temp_max);
 dayOneIcon = apiResponse.weather[4].icon;
 
 
