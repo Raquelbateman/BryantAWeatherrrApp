@@ -55,7 +55,7 @@ async function getweatherData(choosenCity){
   currentLocation.innerText = apiResponse.city.name;
   currentTemp.innerText = Math.round(apiResponse.list[0].main.temp) + "°";
   tempNowMin.innerText = Math.round(apiResponse.list[0].main.temp_min) + "°";
-  tempNowMax.innerText = Math.round(apiResponse.list[0].main.temp_max )+ "°";
+  tempNowMax.innerText = Math.round(apiResponse.list[0].main.temp_max ) + "°";
   iconNow = "./media/sun.png";
 
   console.log(apiResponse);
