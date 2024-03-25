@@ -17,7 +17,7 @@ let dayOneTempNowMax = document.getElementById("dayOneTempNowMax");
 let dayOneIcon = document.getElementById("dayOneIcon");
 
 let dayTwoTemp = document.getElementById("dayTwoTemp");
-let ddayTwoTempNowMin = document.getElementById("dayTwoTempNowMin");
+let dayTwoTempNowMin = document.getElementById("dayTwoTempNowMin");
 let dayTwoTempNowMax = document.getElementById("dayTwoTempNowMax");
 let dayTwoIcon = document.getElementById("dayTwoIcon");
 
@@ -72,46 +72,46 @@ async function getweatherData(choosenCity){
 
 // FIVE DAY TEMP
 
-// async function getweatherData(choosenCity){
-//   let apiResponse = await fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + choosenCity + "&units=imperial&appid=0b21588c5bd6e32721b905cd8aacabd7").then(Response => Response.json());
+async function getweatherData(fiveDayCity){
+  let apiResponse = await fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + fiveDayCity+ "&units=imperial&appid=0b21588c5bd6e32721b905cd8aacabd7").then(Response => Response.json());
 
-//// 1 DAY
-// dayOneTemp.innerText = Math.round(apiResponse.list[4].main.temp);
-// dayOnetempNowMin.innerText = Math.round(apiResponse.list[4].main.temp_min);
-// dayOnetempNowMax.innerText = Math.round(apiResponse.list[4].main.temp_max);
-// dayOneIcon = apiResponse.weather.icon;
+// 1 DAY
+dayOneTemp.innerText = Math.round(apiResponse.list[4].main.temp);
+dayOneTempNowMin.innerText = Math.round(apiResponse.list[4].main.temp_min);
+dayOneTempNowMax.innerText = Math.round(apiResponse.list[4].main.temp_max);
+dayOneIcon = apiResponse.weather.icon;
 
 
-//// 2 DAY
-// dayTwoTemp.innerText = Math.round(apiResponse.list[12].main.temp);
-// dayTwotempNowMin.innerText = Math.round(apiResponse.list[12].main.temp_min);
-// dayTwotempNowMax.innerText = Math.round(apiResponse.list[12].main.temp_max);
-// dayTwoIcon = apiResponse.weather.icon;dayTwoIcon
+// 2 DAY
+dayTwoTemp.innerText = Math.round(apiResponse.list[12].main.temp);
+dayTwoTempNowMin.innerText = Math.round(apiResponse.list[12].main.temp_min);
+dayTwoTempNowMax.innerText = Math.round(apiResponse.list[12].main.temp_max);
+dayTwoIcon = apiResponse.weather.icon;
 
-//// 3 DAY
-// dayThreeTemp.innerText = Math.round(apiResponse.list[20].main.temp);
-// dayThreetempNowMin.innerText = Math.round(apiResponse.list[20].main.temp_min);
-// dayThreetempNowMax.innerText = Math.round(apiResponse.list[20].main.temp_max);
-// dayThreeIcon = apiResponse.weather.icon;
+// 3 DAY
+dayThreeTemp.innerText = Math.round(apiResponse.list[20].main.temp);
+dayThreeTempNowMin.innerText = Math.round(apiResponse.list[20].main.temp_min);
+dayThreeTempNowMax.innerText = Math.round(apiResponse.list[20].main.temp_max);
+dayThreeIcon = apiResponse.weather.icon;
 
-//// 4 DAY
-// dayFourTemp.innerText = Math.round(apiResponse.list[28].main.temp);
-// dayFourtempNowMin.innerText = Math.round(apiResponse.list[28].main.temp_min);
-// dayFourtempNowMax.innerText = Math.round(apiResponse.list[28].main.temp_max);
-// dayFourIcon = apiResponse.weather.icon;
+// 4 DAY
+dayFourTemp.innerText = Math.round(apiResponse.list[28].main.temp);
+dayFourTempNowMin.innerText = Math.round(apiResponse.list[28].main.temp_min);
+dayFourTempNowMax.innerText = Math.round(apiResponse.list[28].main.temp_max);
+dayFourIcon = apiResponse.weather.icon;
 
-//// 5 DAY
-// dayFiveTemp.innerText = Math.round(apiResponse.list[36].main.temp);
-// dayFivetempNowMin.innerText = Math.round(apiResponse.list[36].main.temp_mint);
-// dayFivetempNowMax.innerText = Math.round(apiResponse.list[36].main.temp_max);
-// dayFiveIcon = apiResponse.weather.icon;
+// 5 DAY
+dayFiveTemp.innerText = Math.round(apiResponse.list[36].main.temp);
+dayFiveTempNowMin.innerText = Math.round(apiResponse.list[36].main.temp_mint);
+dayFiveTempNowMax.innerText = Math.round(apiResponse.list[36].main.temp_max);
+dayFiveIcon = apiResponse.weather.icon;
 
 
    
 
 
-//  console.log(apiResponse);
-// };
+ console.log(apiResponse);
+};
 
 
 // one call API response
