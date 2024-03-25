@@ -59,7 +59,7 @@ async function getweatherData(choosenCity){
   let apiResponse = await fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + choosenCity + "&units=imperial&appid=0b21588c5bd6e32721b905cd8aacabd7").then(Response => Response.json());
     
   
-  currentLocation.innerText = apiResponse.name;
+  currentLocation.innerText = apiResponse.city.name;
   currentTemp.innerText = Math.round(apiResponse.list[0].main.temp);
   tempNowMin.innerText = Math.round(apiResponse.list[0].main.temp_min);
   tempNowMax.innerText = Math.round(apiResponse.list[0].main.temp_max);
@@ -70,9 +70,6 @@ async function getweatherData(choosenCity){
 
 
 // FIVE DAY TEMP
-
-// async function getweatherData(fiveDayCity){
-//   let apiResponse = await fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + fiveDayCity+ "&units=imperial&appid=0b21588c5bd6e32721b905cd8aacabd7").then(Response => Response.json());
 
 // 1 DAY
 dayOneTemp.innerText = Math.round(apiResponse.list[4].main.temp);
@@ -85,29 +82,29 @@ dayOneIcon = apiResponse.weather[4].icon;
 dayTwoTemp.innerText = Math.round(apiResponse.list[12].main.temp);
 dayTwoTempMin.innerText = Math.round(apiResponse.list[12].main.temp_min);
 dayTwoTempMax.innerText = Math.round(apiResponse.list[12].main.temp_max);
-dayTwoIcon = apiResponse.weather.icon;
+dayTwoIcon = apiResponse.weather[12].icon;
 
 // 3 DAY
 dayThreeTemp.innerText = Math.round(apiResponse.list[20].main.temp);
 dayThreeTempMin.innerText = Math.round(apiResponse.list[20].main.temp_min);
 dayThreeTempMax.innerText = Math.round(apiResponse.list[20].main.temp_max);
-dayThreeIcon = apiResponse.weather.icon;
+dayThreeIcon = apiResponse.weather[20].icon;
 
 // 4 DAY
 dayFourTemp.innerText = Math.round(apiResponse.list[28].main.temp);
 dayFourTempMin.innerText = Math.round(apiResponse.list[28].main.temp_min);
 dayFourTempMax.innerText = Math.round(apiResponse.list[28].main.temp_max);
-dayFourIcon = apiResponse.weather.icon;
+dayFourIcon = apiResponse.weather[28].icon;
 
 // 5 DAY
 dayFiveTemp.innerText = Math.round(apiResponse.list[36].main.temp);
 dayFiveTempMin.innerText = Math.round(apiResponse.list[36].main.temp_mint);
 dayFiveTempMax.innerText = Math.round(apiResponse.list[36].main.temp_max);
-dayFiveIcon = apiResponse.weather.icon;
+dayFiveIcon = apiResponse.weather[36].icon;
 
 
    
-
+console.log(apiResponse);
 
 //  console.log(apiResponse);
 };
