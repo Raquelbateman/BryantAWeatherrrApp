@@ -68,11 +68,11 @@ async function getweatherData(choosenCity){
 
 // 1 DAY
 dayOneTemp.innerText = Math.round(apiResponse.list[4].main.temp);
-dayOneIcon = apiResponse.weather[4].icon;
+// dayOneIcon = apiResponse.weather[4].icon;
 
 
 // 2 DAY
-dayTwoTemp.innerText = Math.round(apiResponse.list[4].main.temp);
+dayTwoTemp.innerText = Math.round(apiResponse.list[12].main.temp);
 // dayTwoIcon = apiResponse.weather[12].icon;
 
 // // 3 DAY
@@ -86,7 +86,7 @@ dayTwoTemp.innerText = Math.round(apiResponse.list[4].main.temp);
 // // 5 DAY
 // dayFiveTemp.innerText = Math.round(apiResponse.list[36].main.temp);
 // dayFiveIcon = apiResponse.weather[36].icon;
-
+console.log(apiResponse);
 
    
 
