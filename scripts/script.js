@@ -20,8 +20,8 @@ let dayTwoIcon = document.getElementById("dayTwoIcon");
 
 
 
-// let dayThreeTemp = document.getElementById("dayThreeTemp");
-// let dayThreeIcon = document.getElementById("dayThreeIcon");
+let dayThreeTemp = document.getElementById("dayThreeTemp");
+let dayThreeIcon = document.getElementById("dayThreeIcon");
 
 
 
@@ -76,15 +76,15 @@ dayTwoTemp.innerText = Math.round(apiResponse.list[12].main.temp);
 // dayTwoIcon = apiResponse.weather[12].icon;
 
 // // 3 DAY
-// dayThreeTemp.innerText = Math.round(apiResponse.list[20].main.temp);
+dayThreeTemp.innerText = Math.round(apiResponse.list[20].main.temp);
 // dayThreeIcon = apiResponse.weather[20].icon;
 
 // // 4 DAY
-// dayFourTemp.innerText = Math.round(apiResponse.list[28].main.temp);
+dayFourTemp.innerText = Math.round(apiResponse.list[28].main.temp);
 // dayFourIcon = apiResponse.weather[28].icon;
 
 // // 5 DAY
-// dayFiveTemp.innerText = Math.round(apiResponse.list[36].main.temp);
+dayFiveTemp.innerText = Math.round(apiResponse.list[36].main.temp);
 // dayFiveIcon = apiResponse.weather[36].icon;
 console.log(apiResponse);
 
