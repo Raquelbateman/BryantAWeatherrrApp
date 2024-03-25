@@ -3,11 +3,8 @@ let searchBar = document.getElementById("searchBar");
 let dayAndDate = document.getElementById("dayAndDate");
 
 let currentLocation = document.getElementById("currentLocation");
-
 let currentTemp = document.getElementById("currentTemp");
-
 let tempNowMax = document.getElementById("tempNowMax");
-
 let tempNowMin = document.getElementById("tempNowMin");
 
 
@@ -25,12 +22,12 @@ let dayThreeIcon = document.getElementById("dayThreeIcon");
 
 
 
-// let dayFourTemp = document.getElementById("dayFourTemp");
-// let dayFourIcon = document.getElementById("dayFourIcon");
+let dayFourTemp = document.getElementById("dayFourTemp");
+let dayFourIcon = document.getElementById("dayFourIcon");
 
 
-// let dayFiveTemp = document.getElementById("dayFiveTemp");
-// let dayFiveIcon = document.getElementById("dayFiveIcon");
+let dayFiveTemp = document.getElementById("dayFiveTemp");
+let dayFiveIcon = document.getElementById("dayFiveIcon");
 
 let choosenCity ="";
 

@@ -39,51 +39,6 @@ body{
     
 }
 
-/* #fiveDay2{
-    background-color:rgb(35, 120, 198,.5);
-    height:240px;
-    width:160px;
-    margin:.5%;
-    border-radius: 3%;
-    color:#ffffff;
-    text-align: center;
-    
-}
-
-#fiveDay3{
-    background-color:rgb(35, 120, 198,.5);
-    height:240px;
-    width:160px;
-    margin:.5%;
-    border-radius: 3%;
-    color:#ffffff;
-    text-align: center;
-    
-}
-
-#fiveDay4{
-    background-color:rgb(35, 120, 198,.5);
-    height:240px;
-    width:160px;
-    margin:.5%;
-    border-radius: 3%;
-    color:#ffffff;
-    text-align: center;
-    
-}
-
-#fiveDay5{
-    background-color:rgb(35, 120, 198,.5);
-    height:240px;
-    width:160px;
-    margin:.5%;
-    border-radius: 3%;
-    color:#ffffff;
-    text-align: center;
-    
-} */
-
-
 .dayOfWeek{
     margin-top:13%;
 }
