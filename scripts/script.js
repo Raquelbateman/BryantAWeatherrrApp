@@ -12,30 +12,25 @@ let tempNowMin = document.getElementById("tempNowMin");
 
 
 let dayOneTemp = document.getElementById("dayOneTemp");
-let dayOneTempMin = document.getElementById("dayOneTempMin");
-let dayOneTempMax = document.getElementById("dayOneTempMax");
 let dayOneIcon = document.getElementById("dayOneIcon");
 
+
 let dayTwoTemp = document.getElementById("dayTwoTemp");
-let dayTwoTempMin = document.getElementById("dayTwoTempMin");
-let dayTwoTempMax = document.getElementById("dayTwoTempMax");
 let dayTwoIcon = document.getElementById("dayTwoIcon");
 
 
-let dayThreeTemp = document.getElementById("dayThreeTemp");
-let dayThreeTempMin  = document.getElementById("dayThreeTempMin");
-let dayThreeTempMax = document.getElementById("dayThreeTempMax");
-let dayThreeIcon = document.getElementById("dayThreeIcon");
 
-let dayFourTemp = document.getElementById("dayFourTemp");
-let dayFourTempMin = document.getElementById("dayFourTempMin");
-let dayFourTempMax = document.getElementById("dayFourTempMax");
-let dayFourIcon = document.getElementById("dayFourIcon");
+// let dayThreeTemp = document.getElementById("dayThreeTemp");
+// let dayThreeIcon = document.getElementById("dayThreeIcon");
 
-let dayFiveTemp = document.getElementById("dayFiveTemp");
-let dayFiveTempMin = document.getElementById("dayFiveTempMin");
-let dayFiveTempMax = document.getElementById("dayFiveTempMax");
-let dayFiveIcon = document.getElementById("dayFiveIcon");
+
+
+// let dayFourTemp = document.getElementById("dayFourTemp");
+// let dayFourIcon = document.getElementById("dayFourIcon");
+
+
+// let dayFiveTemp = document.getElementById("dayFiveTemp");
+// let dayFiveIcon = document.getElementById("dayFiveIcon");
 
 let choosenCity ="";
 
@@ -79,28 +74,20 @@ dayOneIcon = apiResponse.weather[4].icon;
 
 
 // 2 DAY
-dayTwoTemp.innerText = Math.round(apiResponse.list[12].main.temp);
-dayTwoTempMin.innerText = Math.round(apiResponse.list[12].main.temp_min);
-dayTwoTempMax.innerText = Math.round(apiResponse.list[12].main.temp_max);
-dayTwoIcon = apiResponse.weather[12].icon;
+dayTwoTemp.innerText = Math.round(apiResponse.list[4].main.temp);
+// dayTwoIcon = apiResponse.weather[12].icon;
 
-// 3 DAY
-dayThreeTemp.innerText = Math.round(apiResponse.list[20].main.temp);
-dayThreeTempMin.innerText = Math.round(apiResponse.list[20].main.temp_min);
-dayThreeTempMax.innerText = Math.round(apiResponse.list[20].main.temp_max);
-dayThreeIcon = apiResponse.weather[20].icon;
+// // 3 DAY
+// dayThreeTemp.innerText = Math.round(apiResponse.list[20].main.temp);
+// dayThreeIcon = apiResponse.weather[20].icon;
 
-// 4 DAY
-dayFourTemp.innerText = Math.round(apiResponse.list[28].main.temp);
-dayFourTempMin.innerText = Math.round(apiResponse.list[28].main.temp_min);
-dayFourTempMax.innerText = Math.round(apiResponse.list[28].main.temp_max);
-dayFourIcon = apiResponse.weather[28].icon;
+// // 4 DAY
+// dayFourTemp.innerText = Math.round(apiResponse.list[28].main.temp);
+// dayFourIcon = apiResponse.weather[28].icon;
 
-// 5 DAY
-dayFiveTemp.innerText = Math.round(apiResponse.list[36].main.temp);
-dayFiveTempMin.innerText = Math.round(apiResponse.list[36].main.temp_mint);
-dayFiveTempMax.innerText = Math.round(apiResponse.list[36].main.temp_max);
-dayFiveIcon = apiResponse.weather[36].icon;
+// // 5 DAY
+// dayFiveTemp.innerText = Math.round(apiResponse.list[36].main.temp);
+// dayFiveIcon = apiResponse.weather[36].icon;
 
 
    
