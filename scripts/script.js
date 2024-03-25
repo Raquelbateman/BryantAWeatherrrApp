@@ -12,6 +12,34 @@ let tempNowMin = document.getElementById("tempNowMin");
 
 let fiveDay = document.getElementById("fiveDay");
 
+
+
+let dayOneTemp = document.getElementById("dayOneTemp");
+let dayOneTempNowMin = document.getElementById("dayOneTempNowMin");
+let dayOneTempNowMax = document.getElementById("dayOneTempNowMax");
+let dayOneIcon = document.getElementById("dayOneIcon");
+
+let dayTwoTemp = document.getElementById("dayTwoTemp");
+let ddayTwoTempNowMin = document.getElementById("dayTwoTempNowMin");
+let dayTwoTempNowMax = document.getElementById("dayTwoTempNowMax");
+let dayTwoIcon = document.getElementById("dayTwoIcon");
+
+
+let dayThreeTemp = document.getElementById("dayThreeTemp");
+let dayThreeTempNowMin = document.getElementById("dayThreeTempNowMin");
+let dayThreeTempNowMax = document.getElementById("dayThreeTempNowMax");
+let dayThreeIcon = document.getElementById("dayThreeIcon");
+
+let dayFourTemp = document.getElementById("dayFourTemp");
+let dayFourTempNowMin = document.getElementById("dayFourTempNowMin");
+let dayFourTempNowMax = document.getElementById("dayFourTempNowMax");
+let dayFourIcon = document.getElementById("dayFourIcon");
+
+let dayFiveTemp = document.getElementById("dayFiveTemp");
+let dayFiveTempNowMin = document.getElementById("dayFiveTempNowMin");
+let dayFiveTempNowMax = document.getElementById("dayFiveTempNowMax");
+let dayFiveIcon = document.getElementById("dayFiveIcon");
+
 let choosenCity ="";
 
 

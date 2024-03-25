@@ -65,7 +65,7 @@ body{
 }
 
 
-.currentTemp{
+#currentTemp{
     
     font-size: 140px;
     color:#ffffff;
@@ -74,7 +74,15 @@ body{
 
 }
 
-#tempNowMin, #tempNowMin{
+#tempNowMin{
+    color:#ffffff;
+    font-size: 18px;
+    padding-left: 30%;
+    margin-top: 90px;
+
+}
+
+#tempNowMin{
     color:#ffffff;
     font-size: 18px;
     padding-left: 30%;
