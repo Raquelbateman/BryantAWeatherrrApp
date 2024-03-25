@@ -64,7 +64,7 @@ async function getweatherData(choosenCity){
   tempNowMin.innerText = Math.round(apiResponse.list[0].main.temp_min);
   tempNowMax.innerText = Math.round(apiResponse.list[0].main.temp_max);
 
-
+  console.log(apiResponse);
 //  console.log(apiResponse);
 
 
@@ -104,7 +104,7 @@ dayFiveIcon = apiResponse.weather[36].icon;
 
 
    
-console.log(apiResponse);
+
 
 //  console.log(apiResponse);
 };
