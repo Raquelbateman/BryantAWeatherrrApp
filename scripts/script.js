@@ -2,16 +2,13 @@ let searchBar = document.getElementById("searchBar");
 
 let dayAndDate = document.getElementById("dayAndDate");
 
-let cLocation = document.getElementById("cLocation");
+let currentLocation = document.getElementById("currentLocation");
 
 let currentTemp = document.getElementById("currentTemp");
 
 let tempNowMax = document.getElementById("tempNowMax");
 
 let tempNowMin = document.getElementById("tempNowMin");
-
-let fiveDay = document.getElementById("fiveDay");
-
 
 
 let dayOneTemp = document.getElementById("dayOneTemp");
@@ -62,7 +59,7 @@ async function getweatherData(choosenCity){
   let apiResponse = await fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + choosenCity + "&units=imperial&appid=0b21588c5bd6e32721b905cd8aacabd7").then(Response => Response.json());
     
   
-  cLocation.innerText = apiResponse.name;
+  currentLocation.innerText = apiResponse.name;
   currentTemp.innerText = Math.round(apiResponse.list[0].main.temp);
   tempNowMin.innerText = Math.round(apiResponse.list[0].main.temp_min);
   tempNowMax.innerText = Math.round(apiResponse.list[0].main.temp_max);
