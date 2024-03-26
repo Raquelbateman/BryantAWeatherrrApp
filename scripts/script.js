@@ -56,7 +56,7 @@ async function getweatherData(choosenCity){
   currentTemp.innerText = Math.round(apiResponse.list[0].main.temp) + "°";
   tempNowMin.innerText = Math.round(apiResponse.list[0].main.temp_min) + "°";
   tempNowMax.innerText = Math.round(apiResponse.list[0].main.temp_max ) + "°";
-  iconNow = "./media/sun.png";
+  iconNow = apiResponse.list[0].weather[0].icon;
 
   console.log(apiResponse);
 //  console.log(apiResponse);
@@ -89,14 +89,12 @@ console.log(apiResponse);
 
 // icons
 
-    dayOneIcon.src = "https://openweathermap.org/img/wn/" + apiResponse.list[4].weather[0].icon + "@2x.png"; // show the icon for 1 day after today
-    dayTwoIcon.src = "https://openweathermap.org/img/wn/" + apiResponse.list[12].weather[0].icon + "@2x.png"; // show the icon for 2 day after today
-    dayThreeIcon.src = "https://openweathermap.org/img/wn/" + apiResponse.list[20].weather[0].icon + "@2x.png"; // show the icon for 3 day after today
-    dayFourIcon.src = "https://openweathermap.org/img/wn/" + apiResponse.list[28].weather[0].icon + "@2x.png"; // show the icon for 4 day after today
-    dayFiveIcon.src = "https://openweathermap.org/img/wn/" + apiResponse.list[36].weather[0].icon + "@2x.png"; // show the icon for 5 day after today
+    // dayOneIcon.src = "https://openweathermap.org/img/wn/" + apiResponse.list[4].weather[0].icon + "@2x.png"; // show the icon for 1 day after today
+    // dayTwoIcon.src = "https://openweathermap.org/img/wn/" + apiResponse.list[12].weather[0].icon + "@2x.png"; // show the icon for 2 day after today
+    // dayThreeIcon.src = "https://openweathermap.org/img/wn/" + apiResponse.list[20].weather[0].icon + "@2x.png"; // show the icon for 3 day after today
+    // dayFourIcon.src = "https://openweathermap.org/img/wn/" + apiResponse.list[28].weather[0].icon + "@2x.png"; // show the icon for 4 day after today
+    // dayFiveIcon.src = "https://openweathermap.org/img/wn/" + apiResponse.list[36].weather[0].icon + "@2x.png"; // show the icon for 5 day after today
 
-
-//  console.log(apiResponse);
 };
 
 

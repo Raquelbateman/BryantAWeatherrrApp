@@ -90,10 +90,10 @@ body{
 
 }
 
-#weatherIcon{
-    margin-top: -160px;
-    width: 700%; /* Adjust width as needed */
-    height: 700%; /* Adjust height as needed */
+#iconNow{
+    margin-top: -20px;
+    width: 100%; /* Adjust width as needed */
+    height: 100%; /* Adjust height as needed */
    
     
 }
