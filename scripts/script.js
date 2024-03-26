@@ -30,6 +30,8 @@ let dayFourIcon = document.getElementById("dayFourIcon");
 let dayFiveTemp = document.getElementById("dayFiveTemp");
 let dayFiveIcon = document.getElementById("dayFiveIcon");
 
+let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
 let choosenCity ="";
 
 
@@ -50,14 +52,15 @@ let choosenCity ="";
 // async function to get "cLocation" from the HTML and hook it up with innerText so it displays whatever name is entered when "searchBtn" is pressed
 async function getweatherData(choosenCity){
   let apiResponse = await fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + choosenCity + "&units=imperial&appid=0b21588c5bd6e32721b905cd8aacabd7").then(Response => Response.json());
-    
-  
+
+  let currentDate = new Date(); 
+
   currentLocation.innerText = apiResponse.city.name;
-  dayAndDate.innerText = apiResponse.
+  dayAndDate.innerText = currentDate.toLocaleDateString(undefined, options);
   currentTemp.innerText = Math.round(apiResponse.list[0].main.temp) + "°";
   tempNowMin.innerText = Math.round(apiResponse.list[0].main.temp_min) + "°";
   tempNowMax.innerText = Math.round(apiResponse.list[0].main.temp_max ) + "°";
-  iconNow = apiResponse.list[0].weather[0].icon;
+  // iconNow = apiResponse.list[0].weather[0].icon;
 
   console.log(apiResponse);
 //  console.log(apiResponse);
