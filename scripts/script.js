@@ -54,7 +54,8 @@ async function getweatherData(choosenCity){
   let apiResponse = await fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + choosenCity + "&units=imperial&appid=0b21588c5bd6e32721b905cd8aacabd7").then(Response => Response.json());
 
   let currentDate = new Date(); 
-
+  // let dayOfWeek = daysOfWeek[date.getDay()];
+  // dayElement.innerText = dayOfWeek;
   currentLocation.innerText = apiResponse.city.name;
   dayAndDate.innerText = currentDate.toLocaleDateString(undefined, options);
   currentTemp.innerText = Math.round(apiResponse.list[0].main.temp) + "°";
