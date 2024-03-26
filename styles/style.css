@@ -64,7 +64,7 @@ body{
     color:yellow;
 }
 
-.dayAndDate{
+#dayAndDate{
     padding-top:20px;
     color: #ffffff;
     font-size:25px;
