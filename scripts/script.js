@@ -12,28 +12,34 @@ let iconNow = document.getElementById("iconNow");
 
 let dayOneTemp = document.getElementById("dayOneTemp");
 let dayOneIcon = document.getElementById("dayOneIcon");
+let dayOfWeek1 = document.getElementById("dayOfWeek1");
 
 
 let dayTwoTemp = document.getElementById("dayTwoTemp");
 let dayTwoIcon = document.getElementById("dayTwoIcon");
+let dayOfWeek2 = document.getElementById("dayOfWeek2");
 
 
 
 let dayThreeTemp = document.getElementById("dayThreeTemp");
 let dayThreeIcon = document.getElementById("dayThreeIcon");
+let dayOfWeek3 = document.getElementById("dayOfWeek3");
 
 
 
 let dayFourTemp = document.getElementById("dayFourTemp");
 let dayFourIcon = document.getElementById("dayFourIcon");
+let dayOfWeek4 = document.getElementById("dayOfWeek4");
 
 
 let dayFiveTemp = document.getElementById("dayFiveTemp");
 let dayFiveIcon = document.getElementById("dayFiveIcon");
+let dayOfWeek5 = document.getElementById("dayOfWeek5");
 
 let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
 let choosenCity ="";
+
 
 
 // connects button to getWeatherData by a keypress. whenever a city is entered, it will display it in the left hand corner
@@ -55,6 +61,7 @@ async function getweatherData(choosenCity){
   let apiResponse = await fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + choosenCity + "&units=imperial&appid=0b21588c5bd6e32721b905cd8aacabd7").then(Response => Response.json());
 
   let currentDate = new Date(); 
+  // let weatherCondition = data.weather[0].icon;
 
   // let dayOfWeek = daysOfWeek[date.getDay()];
  
@@ -65,11 +72,12 @@ async function getweatherData(choosenCity){
   currentTemp.innerText = Math.round(apiResponse.list[0].main.temp) + "°";
   tempNowMin.innerText = Math.round(apiResponse.list[0].main.temp_min) + "°";
   tempNowMax.innerText = Math.round(apiResponse.list[0].main.temp_max ) + "°";
-  iconNow = apiResponse.list[0].weather[0].icon;
+  // iconNow = apiResponse.list[0].weather[0].icon;
 
   console.log(apiResponse);
 //  console.log(apiResponse);
-
+// document.querySelector('.main-forecast-icon').setAttribute('src', `http://openweathermap.org/img/wn/${weatherCondition}.png`);
+// document.querySelector('.main-forecast-icon').setAttribute('alt', 'Weather Icon');
 
 
 // FIVE DAY TEMP
@@ -97,7 +105,11 @@ dayFiveTemp.innerText = Math.round(apiResponse.list[36].main.temp);
 console.log(apiResponse);
 
 // icons
-
+dayOfWeek1.innerText
+dayOfWeek2.innerText
+dayOfWeek3.innerText
+dayOfWeek4.innerText
+dayOfWeek5.innerText
     
 
 };
