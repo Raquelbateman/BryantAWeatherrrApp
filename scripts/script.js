@@ -108,31 +108,30 @@ console.log(apiResponse);
 
 //calling the days of the week text
 
-
-
-let daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
-    
-// Loop through the forecast data for the next five days
-for (let i = 0; i < 5; i++) {
-  let forecast = weatherData.list[i]; // Get the forecast data for each day
-  
-  // Extract the date from the forecast data
-  let date = new Date(forecast.dt * 1000); // Convert UNIX timestamp to milliseconds
-  let dayOfWeek = daysOfWeek[i]; // Get the corresponding day of the week
-  
-  // Set the day of the week for each forecasted day
-  let dayElement = document.getElementById(`dayOfWeek${i + 1}`); // Assuming you have elements with IDs dayOfWeek1, dayOfWeek2, ..., dayOfWeek5
-  dayElement.innerText = dayOfWeek;
-
-
-dayOfWeek1.innerText = days[date.getDay() + 1];
-dayOfWeek2.innerText = days[date.getDay() + 2];
-dayOfWeek3.innerText = days[date.getDay() + 3];
-dayOfWeek4.innerText = days[date.getDay() + 4];
-dayOfWeek5.innerText = days[date.getDay() + 5];
-    
-
 };
+
+// async function getWeatherData(choosenCity) {
+//   let apiResponse = await fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + choosenCity + "&units=imperial&appid=0b21588c5bd6e32721b905cd8aacabd7");
+//   let weatherData = await apiResponse.json();
+  
+
+//   // Loop through the forecast data for the next seven days
+//   for (let i = 0; i < 7; i++) {
+//     let forecast = weatherData.list[i]; // Get the forecast data for each day
+    
+//     // Extract the date from the forecast data
+//     let date = new Date(forecast.dt * 1000); // Convert UNIX timestamp to milliseconds
+//     let dayOfWeek1 = getDayOfWeek(date.getDay()); // Get the corresponding day of the week
+    
+//     // Set the day of the week for each forecasted day
+//     let dayElement = document.getElementById(`dayOfWeek1${i + 1}`); // Assuming you have elements with IDs dayOfWeek1, dayOfWeek2, ..., dayOfWeek7
+//     dayElement.innerText = dayOfWeek1;
+//   }
+// };
+
+
+
+
 
 
 // one call API response
