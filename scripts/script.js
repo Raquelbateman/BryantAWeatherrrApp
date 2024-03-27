@@ -105,11 +105,11 @@ dayFiveTemp.innerText = Math.round(apiResponse.list[36].main.temp);
 console.log(apiResponse);
 
 // icons
-dayOfWeek1.innerText
-dayOfWeek2.innerText
-dayOfWeek3.innerText
-dayOfWeek4.innerText
-dayOfWeek5.innerText
+dayOfWeek1.innerText = days[date.getDay() + 1];
+dayOfWeek2.innerText = days[date.getDay() + 2];
+dayOfWeek3.innerText = days[date.getDay() + 3];
+dayOfWeek4.innerText = days[date.getDay() + 4];
+dayOfWeek5.innerText = days[date.getDay() + 5];
     
 
 };
