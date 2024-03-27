@@ -6,6 +6,7 @@ let currentLocation = document.getElementById("currentLocation");
 let currentTemp = document.getElementById("currentTemp");
 let tempNowMax = document.getElementById("tempNowMax");
 let tempNowMin = document.getElementById("tempNowMin");
+let dayOfWeek=document.getElementById("dayOfWeek");
 let iconNow = document.getElementById("iconNow");
 
 
@@ -54,18 +55,17 @@ async function getweatherData(choosenCity){
   let apiResponse = await fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + choosenCity + "&units=imperial&appid=0b21588c5bd6e32721b905cd8aacabd7").then(Response => Response.json());
 
   let currentDate = new Date(); 
-  // let dayOfWeek = daysOfWeek[date.getDay()];
-  // dayElement.innerText = dayOfWeek;
 
-  // const weatherImage = document.getElementById("weathericon")
-  //       let dataIcon = data.weather[0].icon 
-  //       weatherImage.src=`http://openweathermap.org/img/wn/${dataIcon}.png`
+  // let dayOfWeek = daysOfWeek[date.getDay()];
+ 
+
+
   currentLocation.innerText = apiResponse.city.name;
   dayAndDate.innerText = currentDate.toLocaleDateString(undefined, options);
   currentTemp.innerText = Math.round(apiResponse.list[0].main.temp) + "°";
   tempNowMin.innerText = Math.round(apiResponse.list[0].main.temp_min) + "°";
   tempNowMax.innerText = Math.round(apiResponse.list[0].main.temp_max ) + "°";
-  // iconNow = apiResponse.list[0].weather[0].icon;
+  iconNow = apiResponse.list[0].weather[0].icon;
 
   console.log(apiResponse);
 //  console.log(apiResponse);
