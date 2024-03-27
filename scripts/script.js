@@ -66,7 +66,7 @@ async function getweatherData(choosenCity){
   // let dayOfWeek = daysOfWeek[date.getDay()];
  
 
-
+// innerText is used to replace the text for the location, day and date, current temp, minimun and maximun temp
   currentLocation.innerText = apiResponse.city.name;
   dayAndDate.innerText = currentDate.toLocaleDateString(undefined, options);
   currentTemp.innerText = Math.round(apiResponse.list[0].main.temp) + "°";
@@ -105,6 +105,26 @@ dayFiveTemp.innerText = Math.round(apiResponse.list[36].main.temp);
 console.log(apiResponse);
 
 // icons
+
+//calling the days of the week text
+
+
+
+let daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+    
+// Loop through the forecast data for the next five days
+for (let i = 0; i < 5; i++) {
+  let forecast = weatherData.list[i]; // Get the forecast data for each day
+  
+  // Extract the date from the forecast data
+  let date = new Date(forecast.dt * 1000); // Convert UNIX timestamp to milliseconds
+  let dayOfWeek = daysOfWeek[i]; // Get the corresponding day of the week
+  
+  // Set the day of the week for each forecasted day
+  let dayElement = document.getElementById(`dayOfWeek${i + 1}`); // Assuming you have elements with IDs dayOfWeek1, dayOfWeek2, ..., dayOfWeek5
+  dayElement.innerText = dayOfWeek;
+
+
 dayOfWeek1.innerText = days[date.getDay() + 1];
 dayOfWeek2.innerText = days[date.getDay() + 2];
 dayOfWeek3.innerText = days[date.getDay() + 3];
