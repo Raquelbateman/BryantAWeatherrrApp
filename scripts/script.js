@@ -56,6 +56,10 @@ async function getweatherData(choosenCity){
   let currentDate = new Date(); 
   // let dayOfWeek = daysOfWeek[date.getDay()];
   // dayElement.innerText = dayOfWeek;
+
+  // const weatherImage = document.getElementById("weathericon")
+  //       let dataIcon = data.weather[0].icon 
+  //       weatherImage.src=`http://openweathermap.org/img/wn/${dataIcon}.png`
   currentLocation.innerText = apiResponse.city.name;
   dayAndDate.innerText = currentDate.toLocaleDateString(undefined, options);
   currentTemp.innerText = Math.round(apiResponse.list[0].main.temp) + "°";
@@ -94,11 +98,7 @@ console.log(apiResponse);
 
 // icons
 
-    // dayOneIcon.src = "https://openweathermap.org/img/wn/" + apiResponse.list[4].weather[0].icon + "@2x.png"; // show the icon for 1 day after today
-    // dayTwoIcon.src = "https://openweathermap.org/img/wn/" + apiResponse.list[12].weather[0].icon + "@2x.png"; // show the icon for 2 day after today
-    // dayThreeIcon.src = "https://openweathermap.org/img/wn/" + apiResponse.list[20].weather[0].icon + "@2x.png"; // show the icon for 3 day after today
-    // dayFourIcon.src = "https://openweathermap.org/img/wn/" + apiResponse.list[28].weather[0].icon + "@2x.png"; // show the icon for 4 day after today
-    // dayFiveIcon.src = "https://openweathermap.org/img/wn/" + apiResponse.list[36].weather[0].icon + "@2x.png"; // show the icon for 5 day after today
+    
 
 };
 
