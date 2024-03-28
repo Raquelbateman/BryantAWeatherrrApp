@@ -70,12 +70,14 @@ async function getweatherData(choosenCity){
   let apiResponse = await fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + choosenCity + "&units=imperial&appid=0b21588c5bd6e32721b905cd8aacabd7").then(Response => Response.json());
 
   let currentDate = new Date(); 
+  console.log(choosenCity)
   // let weatherCondition = data.weather[0].icon;
 
   // let dayOfWeek = daysOfWeek[date.getDay()];
  
 
 // innerText is used to replace the text for the location, day and date, current temp, minimun and maximun temp
+  locationIcon.src = "https://openweathermap.org/img/wn/" + apiResponse.list["4"].weather["0"].icon +  ".png";  
   currentLocation.innerText = apiResponse.city.name;
   dayAndDate.innerText = currentDate.toLocaleDateString(undefined, options);
   currentTemp.innerText = Math.round(apiResponse.list[0].main.temp) + "°";
@@ -110,6 +112,12 @@ dayFourTemp.innerText = Math.round(apiResponse.list[28].main.temp);
 
 // // 5 DAY
 dayFiveTemp.innerText = Math.round(apiResponse.list[36].main.temp);
+
+dayOneIcon.src = "https://openweathermap.org/img/wn/" + apiResponse.list["4"].weather["0"].icon + ".png";
+dayTwoIcon.src = "https://openweathermap.org/img/wn/" + apiResponse.list["12"].weather["0"].icon + ".png";
+dayThreeIcon.src = "https://openweathermap.org/img/wn/" + apiResponse.list["20"].weather["0"].icon + ".png";
+dayFourIcon.src = "https://openweathermap.org/img/wn/" + apiResponse.list["28"].weather["0"].icon + ".png";
+dayFiveIcon.src = "https://openweathermap.org/img/wn/" + apiResponse.list["36"].weather["0"].icon + ".png";
 // dayFiveIcon = apiResponse.weather[36].icon;
 console.log(apiResponse);
 
