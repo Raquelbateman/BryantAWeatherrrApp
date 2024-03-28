@@ -6,8 +6,8 @@ let currentLocation = document.getElementById("currentLocation");
 let currentTemp = document.getElementById("currentTemp");
 let tempNowMax = document.getElementById("tempNowMax");
 let tempNowMin = document.getElementById("tempNowMin");
-let dayOfWeek=document.getElementById("dayOfWeek");
-let iconNow = document.getElementById("iconNow");
+let dayOfWeek =document.getElementById("dayOfWeek");
+let locationIcon = document.getElementById("locationIcon");
 
 
 let dayOneTemp = document.getElementById("dayOneTemp");
@@ -39,6 +39,15 @@ let dayOfWeek5 = document.getElementById("dayOfWeek5");
 let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
 let choosenCity ="";
+
+let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday","Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+let d = new Date();
+let day = days[d.getDay()];
+dayOfWeek1.innerText = days[d.getDay()+1];
+dayOfWeek2.innerText = days[d.getDay()+2];
+dayOfWeek3.innerText = days[d.getDay()+3];
+dayOfWeek4.innerText = days[d.getDay()+4];
+dayOfWeek5.innerText = days[d.getDay()+5];
 
 
 
@@ -105,6 +114,8 @@ dayFiveTemp.innerText = Math.round(apiResponse.list[36].main.temp);
 console.log(apiResponse);
 
 // icons
+
+
 
 //calling the days of the week text
 
