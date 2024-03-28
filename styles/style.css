@@ -98,10 +98,10 @@ body{
 
 }
 
-#iconNow {
+#locationIcon{
     display: flex;
     justify-content: center; 
-    padding-left: 370px;
+    margin-left: 370px;
     margin-top: -152px;
 }
 
