@@ -31,6 +31,10 @@ body{
     
 }
 
+#injectHere{
+    color:#ffffff;
+    margin-top:-170px;
+}
 #fiveDayRow{
     display: flex;
     align-items: center;
@@ -80,7 +84,7 @@ body{
 
 #dayAndDate{
     padding-top:30px;
-    margin-left:-30px;
+    margin-left:-50px;
     color: #ffffff;
     font-size:25px;
     
