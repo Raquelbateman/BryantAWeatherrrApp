@@ -63,7 +63,7 @@ let days = [
   "Saturday",
 ];
 
-
+// this innerText targets the assigned ID and replaces that text on the screen
 let d = new Date();
 let day = days[d.getDay()];
 dayOfWeek1.innerText = days[d.getDay() + 1];
