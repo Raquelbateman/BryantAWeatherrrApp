@@ -14,7 +14,21 @@ body{
     height:317px;
     width:865px;
     border-radius: 3%;
-    background-color:rgb(35, 120, 198,.5);
+    background-color:rgb(35, 140, 198);
+}
+
+#saveBtn{
+    width:80px;
+    height:30px;
+    float:right;
+
+}
+
+#deleteBtn{
+    width:80px;
+    height:30px;
+    float:right;
+    
 }
 
 #fiveDayRow{
