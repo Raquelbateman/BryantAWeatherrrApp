@@ -109,14 +109,14 @@ saveBtn.addEventListener("click", function () {
 //
 
 // async function to get "cLocation" from the HTML and hook it up with innerText so it displays whatever name is entered when "searchBtn" is pressed
-async function getweatherData(choosenCity) {
+async function getweatherData(choosenCitys) {
   let apiResponse = await fetch(
     "https://api.openweathermap.org/data/2.5/forecast?q=" +
-      choosenCity +
+      choosenCitys +
       "&units=imperial&appid=0b21588c5bd6e32721b905cd8aacabd7").then(Response => Response.json());
   weatherData = apiResponse;
   let currentDate = new Date();
-  console.log(choosenCity);
+  console.log(choosenCitys);
   console.log(currentDate);
 
 
