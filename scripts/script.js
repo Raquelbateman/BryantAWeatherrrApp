@@ -83,7 +83,7 @@ searchBar.addEventListener("keypress", function (event) {
   }
 });
 
-//Save function
+// save function for favorites list
 saveBtn.addEventListener("click", function () {
   let obj = { "favCity": cityData.city.name };
   favArr.push(obj);
@@ -98,7 +98,7 @@ saveBtn.addEventListener("click", function () {
   });
 
 
-
+// delete function for favorites section
   let deleteBtn = document.createElement("button");
   deleteBtn.classList.add("delete-btn");
   deleteBtn.innerText = "Delete";
@@ -117,7 +117,7 @@ saveBtn.addEventListener("click", function () {
 
 //
 
-// async function to get "cLocation" from the HTML and hook it up with innerText so it displays whatever name is entered when "searchBtn" is pressed
+// async function to get "currentLocation" from the HTML and hook it up with innerText so it displays whatever name is entered when "searchBtn" is pressed
 async function getweatherData(choosenCitys) {
   let apiResponse = await fetch(
     "https://api.openweathermap.org/data/2.5/forecast?q=" +
@@ -130,26 +130,17 @@ async function getweatherData(choosenCitys) {
   console.log(currentDate);
 
 
-  // let weatherCondition = data.weather[0].icon;
-
-  // let dayOfWeek = daysOfWeek[date.getDay()];
 
   // innerText is used to replace the text for the location, day and date, current temp, minimun and maximun temp
-  locationIcon.src =
-    "https://openweathermap.org/img/wn/" +
-    apiResponse.list["4"].weather["0"].icon +
-    ".png";
+  locationIcon.src ="https://openweathermap.org/img/wn/" + apiResponse.list["4"].weather["0"].icon + ".png";
   currentLocation.innerText = apiResponse.city.name;
   dayAndDate.innerText = currentDate.toLocaleDateString(undefined, options);
   currentTemp.innerText = Math.round(apiResponse.list[0].main.temp) + "°";
   tempNowMin.innerText = Math.round(apiResponse.list[0].main.temp_min) + "°";
   tempNowMax.innerText = Math.round(apiResponse.list[0].main.temp_max) + "°";
-  // iconNow = apiResponse.list[0].weather[0].icon;
+
 
   console.log(apiResponse);
-  //  console.log(apiResponse);
-  // document.querySelector('.main-forecast-icon').setAttribute('src', `http://openweathermap.org/img/wn/${weatherCondition}.png`);
-  // document.querySelector('.main-forecast-icon').setAttribute('alt', 'Weather Icon');
 
   // FIVE DAY TEMP
 
@@ -171,7 +162,8 @@ async function getweatherData(choosenCitys) {
 
   // // 5 DAY
   dayFiveTemp.innerText = Math.round(apiResponse.list[36].main.temp);
-/// i
+
+/// FIVE DAY ICONS
   dayOneIcon.src =
     "https://openweathermap.org/img/wn/" +
     apiResponse.list["4"].weather["0"].icon +
