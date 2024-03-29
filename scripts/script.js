@@ -1,7 +1,12 @@
 let searchBar = document.getElementById("searchBar");
 
+let saveBtn = document.getElementById("saveBtn")
+
 let dayAndDate = document.getElementById("dayAndDate");
 
+let injectHere = document.getElementById("injectHere");
+
+// CURRENT DAY IDS
 let currentLocation = document.getElementById("currentLocation");
 let currentTemp = document.getElementById("currentTemp");
 let tempNowMax = document.getElementById("tempNowMax");
@@ -9,6 +14,7 @@ let tempNowMin = document.getElementById("tempNowMin");
 let dayOfWeek = document.getElementById("dayOfWeek");
 let locationIcon = document.getElementById("locationIcon");
 
+// 5 DAY IDS
 let dayOneTemp = document.getElementById("dayOneTemp");
 let dayOneIcon = document.getElementById("dayOneIcon");
 let dayOfWeek1 = document.getElementById("dayOfWeek1");
@@ -64,6 +70,7 @@ dayOfWeek5.innerText = days[d.getDay() + 5];
 
 let faveCityAPI = [];
 let favArr = [];
+let cityData = [];
 let weatherData = [];
 
 // connects button to getWeatherData by a keypress. whenever a city is entered, it will display it in the left hand corner
@@ -78,16 +85,18 @@ searchBar.addEventListener("keypress", function (event) {
 
 //Save function
 saveBtn.addEventListener("click", function () {
-  let obj = { favCity: cityData.name };
+  let obj = { "favCity": cityData.city.name };
   favArr.push(obj);
-  localStorage.setItem("favrioteCity", JSON.stringify(favArr));
+  localStorage.setItem("favoriteCity", JSON.stringify(favArr));
+  console.log(favArr);
   let colDiv = document.createElement("div");
   colDiv.classList = "col";
   let ptag = document.createElement("p");
-  ptag.innerText = cityData.name;
+  ptag.innerText = cityData.city.name;
   ptag.addEventListener("click", function () {
     getFive(ptag.innerText);
   });
+
 
 
   let deleteBtn = document.createElement("button");
@@ -97,7 +106,7 @@ saveBtn.addEventListener("click", function () {
     colDiv.remove();
     let index = favArr.findIndex((item) => item.favCity === ptag.innerText);
     favArr.splice(index, 1);
-    localStorage.setItem("favrioteCity", JSON.stringify(favArr));
+    localStorage.setItem("favoriteCity", JSON.stringify(favArr));
   });
 
   colDiv.appendChild(ptag);
@@ -115,6 +124,7 @@ async function getweatherData(choosenCitys) {
       choosenCitys +
       "&units=imperial&appid=0b21588c5bd6e32721b905cd8aacabd7").then(Response => Response.json());
   weatherData = apiResponse;
+  cityData = apiResponse;
   let currentDate = new Date();
   console.log(choosenCitys);
   console.log(currentDate);
@@ -161,7 +171,7 @@ async function getweatherData(choosenCitys) {
 
   // // 5 DAY
   dayFiveTemp.innerText = Math.round(apiResponse.list[36].main.temp);
-
+/// i
   dayOneIcon.src =
     "https://openweathermap.org/img/wn/" +
     apiResponse.list["4"].weather["0"].icon +
@@ -182,14 +192,16 @@ async function getweatherData(choosenCitys) {
     "https://openweathermap.org/img/wn/" +
     apiResponse.list["36"].weather["0"].icon +
     ".png";
-  // dayFiveIcon = apiResponse.weather[36].icon;
+
  
 
-  // icons
 
-  //calling the days of the week text
   console.log("This async function finished!");
 };
+
+
+
+//OLD DISCARDED CODE THAT DIDNT WORK SO WELL.
 
 // async function getWeatherData(choosenCity) {
 //   let apiResponse = await fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + choosenCity + "&units=imperial&appid=0b21588c5bd6e32721b905cd8aacabd7");
