@@ -7,7 +7,7 @@
  // Using HTML, CSS AND Javascript, we were to build a fully functional API. The application must include the current date, temperature,
  max and minimun temperatures plus a 5 day forecast. Icons must be hooked up, must have a favorites list, and pull from https://openweathermap.org/.
 
-// Person who Peer Reviewed your assignment: 
+// Person who Peer Reviewed your assignment: Aaron Perez: Design looks like the figma. There is no search button, enter key needs to be clicked, The correct API data is pulling in search. favorites list needs to be fixed to link api city data.
 
 Flow Chart - if listed in project requirements
 
