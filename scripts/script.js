@@ -43,8 +43,8 @@ let options = {
   day: "numeric",
 };
 
-//accesses the days of the week from the computer and shows them for the 5 day forecast
 let choosenCity = "";
+//accesses the days of the week from the computer and shows them for the 5 day forecast
 
 let days = [
   "Sunday",
@@ -62,6 +62,8 @@ let days = [
   "Friday",
   "Saturday",
 ];
+
+
 let d = new Date();
 let day = days[d.getDay()];
 dayOfWeek1.innerText = days[d.getDay() + 1];
@@ -89,14 +91,17 @@ searchBar.addEventListener("keypress", function (event) {
 saveBtn.addEventListener("click", function () {
   let obj = { "favCity": cityData.city.name };
   favArr.push(obj);
-  localStorage.setItem("favoriteCity", JSON.stringify(favArr));
+  localStorage.setItem("favCity", JSON.stringify(favArr));
+
   console.log(favArr);
+
   let colDiv = document.createElement("div");
   colDiv.classList = "col";
+
   let ptag = document.createElement("p");
   ptag.innerText = cityData.city.name;
   ptag.addEventListener("click", function () {
-    getFive(ptag.innerText);
+    getweatherData(ptag.innerText);
   });
 
 
@@ -119,7 +124,7 @@ saveBtn.addEventListener("click", function () {
 
 //
 
-// async function to get "currentLocation" from the HTML and hook it up with innerText so it displays whatever name is entered when "searchBtn" is pressed
+// async function that pulls weather data from the open weather api
 async function getweatherData(choosenCitys) {
   let apiResponse = await fetch(
     "https://api.openweathermap.org/data/2.5/forecast?q=" +
@@ -144,22 +149,22 @@ async function getweatherData(choosenCitys) {
 
 
   // FIVE DAY TEMP
+  // once again, innerText is used to replace the text targeted by the ID
 
   // 1 DAY
   dayOneTemp.innerText = Math.round(apiResponse.list[4].main.temp);
-  // dayOneIcon = apiResponse.weather[4].icon;
+
 
   // 2 DAY
   dayTwoTemp.innerText = Math.round(apiResponse.list[12].main.temp);
-  // dayTwoIcon = apiResponse.weather[12].icon;
+
 
   // // 3 DAY
   dayThreeTemp.innerText = Math.round(apiResponse.list[20].main.temp);
-  // dayThreeIcon = apiResponse.weather[20].icon;
+
 
   // // 4 DAY
   dayFourTemp.innerText = Math.round(apiResponse.list[28].main.temp);
-  // dayFourIcon = apiResponse.weather[28].icon;
 
   // // 5 DAY
   dayFiveTemp.innerText = Math.round(apiResponse.list[36].main.temp);
@@ -189,7 +194,7 @@ async function getweatherData(choosenCitys) {
  
 
 
-  console.log("This async function finished!");
+
 };
 
 
