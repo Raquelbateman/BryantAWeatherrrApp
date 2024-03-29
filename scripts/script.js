@@ -35,6 +35,7 @@ let dayFiveTemp = document.getElementById("dayFiveTemp");
 let dayFiveIcon = document.getElementById("dayFiveIcon");
 let dayOfWeek5 = document.getElementById("dayOfWeek5");
 
+
 let options = {
   weekday: "long",
   year: "numeric",
@@ -42,6 +43,7 @@ let options = {
   day: "numeric",
 };
 
+//accesses the days of the week from the computer and shows them for the 5 day forecast
 let choosenCity = "";
 
 let days = [
@@ -140,7 +142,6 @@ async function getweatherData(choosenCitys) {
   tempNowMax.innerText = Math.round(apiResponse.list[0].main.temp_max) + "°";
 
 
-  console.log(apiResponse);
 
   // FIVE DAY TEMP
 
