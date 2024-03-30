@@ -1,20 +1,24 @@
+
+let faveCityAPI = [];
+let favArr = [];
+let cityData = [];
+let weatherData = [];
+
+
 let searchBar = document.getElementById("searchBar");
-
 let saveBtn = document.getElementById("saveBtn")
-
-let dayAndDate = document.getElementById("dayAndDate");
-
 let injectHere = document.getElementById("injectHere");
 
 // CURRENT DAY IDS
 let currentLocation = document.getElementById("currentLocation");
+let dayAndDate = document.getElementById("dayAndDate");
 let currentTemp = document.getElementById("currentTemp");
 let tempNowMax = document.getElementById("tempNowMax");
 let tempNowMin = document.getElementById("tempNowMin");
 let dayOfWeek = document.getElementById("dayOfWeek");
 let locationIcon = document.getElementById("locationIcon");
 
-// 5 DAY IDS
+// 5 DAY FORECAST IDS: includes the temp, the name of the week, and a weather icom
 let dayOneTemp = document.getElementById("dayOneTemp");
 let dayOneIcon = document.getElementById("dayOneIcon");
 let dayOfWeek1 = document.getElementById("dayOfWeek1");
@@ -72,10 +76,6 @@ dayOfWeek3.innerText = days[d.getDay() + 3];
 dayOfWeek4.innerText = days[d.getDay() + 4];
 dayOfWeek5.innerText = days[d.getDay() + 5];
 
-let faveCityAPI = [];
-let favArr = [];
-let cityData = [];
-let weatherData = [];
 
 // connects button to getWeatherData by a keypress. whenever a city is entered, it will display it in the left hand corner
 searchBar.addEventListener("keypress", function (event) {
