@@ -92,6 +92,8 @@ saveBtn.addEventListener("click", function () {
   let obj = { "favCity": cityData.city.name };
   favArr.push(obj);
   localStorage.setItem("favCity", JSON.stringify(favArr));
+  favArr = JSON.parse(localStorage.getItem("favoriteCity")) || [];
+  console.log("Loaded favorites:", favArr);
 
   console.log(favArr);
 
@@ -146,7 +148,8 @@ async function getweatherData(choosenCitys) {
   tempNowMin.innerText = Math.round(apiResponse.list[0].main.temp_min) + "°";
   tempNowMax.innerText = Math.round(apiResponse.list[0].main.temp_max) + "°";
 
-
+  favArr = JSON.parse(localStorage.getItem("favoriteCity")) || [];
+  console.log("Loaded favorites:", favArr);
 
   // FIVE DAY TEMP
   // once again, innerText is used to replace the text targeted by the ID
